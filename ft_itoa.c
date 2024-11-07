@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoi.c                                          :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: helkhouj <helkhouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,48 +12,46 @@
 
 #include "libft.h"
 
-static int get_num_length(int n)
+static int	get_num_length(int n)
 {
-    int len = 0;
+	int	len;
 
-    if (n <= 0)
-        len = 1;  
-    while (n != 0)
-    {
-        n /= 10;
-        len++;
-    }
-    return len;
+	len = 0;
+	if (n <= 0)
+		len = 1;
+	while (n != 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-    int len = get_num_length(n);
-    int sign = 1;
-    char *str;
+	int		len;
+	int		sign;
+	char	*str;
 
-    if (n < 0)
-        sign = -1;
-
-    str = (char *)malloc(sizeof(char) * (len + 1));
-    if (!str)
-        return NULL;
-
-    str[len] = '\0';
-    if (n == 0)
-    {
-        str[0] = '0';
-        return str;
-    }
-
-    while (n != 0)
-    {
-        str[--len] = (sign * (n % 10)) + '0';
-        n /= 10;
-    }
-
-    if (sign == -1)
-        str[0] = '-';
-
-    return str;
+	len = get_num_length(n);
+	sign = 1;
+	if (n < 0)
+		sign = -1;
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	str[len] = '\0';
+	if (n == 0)
+	{
+		str[0] = '0';
+		return (str);
+	}
+	while (n != 0)
+	{
+		str[--len] = (sign * (n % 10)) + '0';
+		n /= 10;
+	}
+	if (sign == -1)
+		str[0] = '-';
+	return (str);
 }
