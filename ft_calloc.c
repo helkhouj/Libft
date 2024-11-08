@@ -14,5 +14,22 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
+    void *ptr;
+    size_t total_size = count * size;
+    size_t i = 0;
 
+    if(cout != 0 && (total_size / count) != size)
+        return(NULL);
+
+    ptr = malloc(total_size);
+    if(!ptr)
+        return(NULL);
+
+    unsigned char *p = (unsigned char *)ptr;
+    while(i < total_size)
+    {
+        ptr[i] = 0;
+        i++;
+    }
+    return ptr;
 }
