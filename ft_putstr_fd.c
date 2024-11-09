@@ -6,7 +6,7 @@
 /*   By: helkhouj <helkhouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:32:47 by helkhouj          #+#    #+#             */
-/*   Updated: 2024/11/06 13:33:09 by helkhouj         ###   ########.fr       */
+/*   Updated: 2024/11/09 14:26:12 by helkhouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-    size_t len = 0;
+	size_t	len;
 
-    if(!s)
-        return;
-
-    while(s[len])
-        len++;
-    
-    write(fd, s, len);
+	len = 0;
+	if (!s)
+		return ;
+	while (s[len])
+		len++;
+	write(fd, s, len);
 }
