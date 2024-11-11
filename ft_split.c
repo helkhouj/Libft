@@ -55,5 +55,28 @@ static void free_split(char **result, size_t index)
 
 char	**ft_split(char const *s, char c)
 {
-    
+    char **result;
+    size_t i = 0;
+    size_t words_index = 0;
+    size_t word_count;
+    size_t word_start = 0;
+    size_t word_len = 0;
+
+    if (!s || !(result = malloc((count_words(s, c) + 1) * sizeof(char *))))
+        return NULL;
+    word_count = count_words(s, c);
+    while (s[i])
+    {
+        if (s[i] != c && word_len++ == 0)
+            word_start = i;
+        else if ((s[i] == c || s[i + 1] == '\0') && word_len)
+        {
+            if (!(result[word_index++] = word_dup(s, word_start, word_len)))
+                return (free_split(result, word_index - 1), NULL);
+            word_len = 0;
+        }
+        i++;
+    }
+    result[word_index] = NULL;
+    return result;
 }
