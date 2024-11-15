@@ -6,7 +6,7 @@
 /*   By: helkhouj <helkhouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:33:12 by helkhouj          #+#    #+#             */
-/*   Updated: 2024/11/06 13:33:44 by helkhouj         ###   ########.fr       */
+/*   Updated: 2024/11/11 18:59:29 by helkhouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,8 @@ static void	free_split(char **result, size_t index)
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
-	size_t	i;
-	size_t	words_index;
-	size_t	word_count;
-	size_t	word_start;
-	size_t	word_len;
+	size_t	i = 0, word_index = 0, word_start = 0, word_len = 0, word_count;
 
-	i = 0;
-	words_index = 0;
-	word_start = 0;
-	word_len = 0;
 	if (!s || !(result = malloc((count_words(s, c) + 1) * sizeof(char *))))
 		return (NULL);
 	word_count = count_words(s, c);
