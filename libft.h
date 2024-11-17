@@ -6,7 +6,7 @@
 /*   By: helkhouj <helkhouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:04:28 by helkhouj          #+#    #+#             */
-/*   Updated: 2024/11/15 18:27:18 by helkhouj         ###   ########.fr       */
+/*   Updated: 2024/11/17 16:49:06 by helkhouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 // Character functions
 int		ft_isalpha(int c);
