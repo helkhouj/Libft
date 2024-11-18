@@ -12,72 +12,83 @@
 
 #include "libft.h"
 
-static size_t	count_words(const char *s, char c)
+static size_t count_words(const char *s, char c)
 {
-	size_t	count;
-	int		in_word;
+	size_t count;
 
 	count = 0;
-	in_word = 0;
 	while (*s)
 	{
-		if (*s != c && !in_word)
+		while (*s && *s == c)
+			s++;
+		if (*s && *s != c)
 		{
-			in_word = 1;
 			count++;
+			while (*s && *s != c)
+				s++;
 		}
-		else if (*s == c)
-			in_word = 0;
-		s++;
 	}
 	return (count);
 }
 
-static char	*word_dup(const char *s, size_t start, size_t len)
+static char *alloc_word(const char *s, size_t start, size_t len)
 {
-	char	*word;
-	size_t	i;
+	char *word;
 
 	word = (char *)malloc((len + 1) * sizeof(char));
-	i = 0;
 	if (!word)
 		return (NULL);
-	while (i < len)
-	{
-		word[i] = s[start + i];
-		i++;
-	}
+	ft_memcpy(word, s + start, len);
 	word[len] = '\0';
 	return (word);
 }
 
-static void	free_split(char **result, size_t index)
+static void *free_all(char **result, size_t idx)
 {
-	while (index > 0)
-		free(result[--index]);
+	while (idx--)
+		free(result[idx]);
 	free(result);
+	return (NULL);
 }
 
-char	**ft_split(char const *s, char c)
+static char **populate_result(char const *s, char c, char **result, size_t word_count)
 {
-	char	**result;
-	size_t	i = 0, word_index = 0, word_start = 0, word_len = 0, word_count;
+	size_t i;
+	size_t start;
+	size_t len;
+	size_t idx;
 
-	if (!s || !(result = malloc((count_words(s, c) + 1) * sizeof(char *))))
-		return (NULL);
-	word_count = count_words(s, c);
-	while (s[i])
+	i = 0;
+	len = 0;
+	idx = 0;
+	while (s[i] && idx < word_count)
 	{
-		if (s[i] != c && word_len++ == 0)
-			word_start = i;
-		else if ((s[i] == c || s[i + 1] == '\0') && word_len)
+		if (s[i] != c && len++ == 0)
+			start = i;
+		if ((s[i] == c || !s[i + 1]) && len > 0)
 		{
-			if (!(result[word_index++] = word_dup(s, word_start, word_len)))
-				return (free_split(result, word_index - 1), NULL);
-			word_len = 0;
+			result[idx] = alloc_word(s, start, len);
+			if (!result[idx])
+				return (free_all(result, idx));
+			idx++;
+			len = 0;
 		}
 		i++;
 	}
-	result[word_index] = NULL;
+	result[idx] = NULL;
 	return (result);
+}
+
+char **ft_split(char const *s, char c)
+{
+	char	**result;
+	size_t	word_count;
+
+	if (!s)
+		return (NULL);
+	word_count = count_words(s, c);
+	result = malloc((word_count + 1) * sizeof(char *));
+	if (!result)
+		return (NULL);
+	return (populate_result(s, c, result, word_count));
 }
