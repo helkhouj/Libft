@@ -6,7 +6,7 @@
 /*   By: helkhouj <helkhouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:36:30 by helkhouj          #+#    #+#             */
-/*   Updated: 2024/11/09 14:35:35 by helkhouj         ###   ########.fr       */
+/*   Updated: 2024/11/21 16:23:05 by helkhouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,4 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub_str[actual_len] = '\0';
 	return (sub_str);
 }
+

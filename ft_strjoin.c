@@ -6,7 +6,7 @@
 /*   By: helkhouj <helkhouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:34:45 by helkhouj          #+#    #+#             */
-/*   Updated: 2024/11/10 17:02:47 by helkhouj         ###   ########.fr       */
+/*   Updated: 2024/11/21 17:04:38 by helkhouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	s2_len = ft_strlen(s2);
 	total_len = s1_len + s2_len;
 	joined_str = (char *)malloc(total_len + 1);
-	if (joined_str)
-	{
-		ft_memcpy(joined_str, s1, s1_len);
-		ft_memcpy(joined_str + s1_len, s2, s2_len);
-		joined_str[total_len] = '\0';
-	}
+	if (!joined_str)
+		return (NULL);
+	
+	ft_memcpy(joined_str, s1, s1_len);
+	ft_memcpy(joined_str + s1_len, s2, s2_len);
+		
+	joined_str[total_len] = '\0';
+	
 	return (joined_str);
 }

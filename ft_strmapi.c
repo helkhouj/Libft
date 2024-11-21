@@ -6,7 +6,7 @@
 /*   By: helkhouj <helkhouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:35:18 by helkhouj          #+#    #+#             */
-/*   Updated: 2024/11/06 13:35:39 by helkhouj         ###   ########.fr       */
+/*   Updated: 2024/11/21 17:59:19 by helkhouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,4 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
     new_str[i] = '\0';
     return (new_str);
 }
+
