@@ -25,7 +25,14 @@ char	*ft_strrchr(const char *s, int c)
 			return ((char *)&s[len - 1]);
 		len--;
 	}
-	if ((char)c == '\0')
-		return ((char *)&s[len - 1]);
 	return (NULL);
+}
+
+
+int main(void)
+{
+	char str[5] = "hello";
+	char *result = ft_strrchr(str, '\0');
+	printf("%s", result);
+	return 0;
 }

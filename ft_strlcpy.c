@@ -30,3 +30,13 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	}
 	return (src_len);
 }
+
+int main (void)
+{
+	char str[10];
+	const char src[] = "hello";
+	size_t result = ft_strlcpy(str, src, 10);
+	printf("%s", str);
+	printf("%zu", result);
+	return 0;
+}
