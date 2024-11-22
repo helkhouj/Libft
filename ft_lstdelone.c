@@ -6,7 +6,7 @@
 /*   By: helkhouj <helkhouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 14:35:46 by helkhouj          #+#    #+#             */
-/*   Updated: 2024/11/17 14:35:47 by helkhouj         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:15:26 by helkhouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void ft_lstdelone(t_list *lst, void (*del)(void *))
         return;
 
     del(lst->content);
-    free(lst);          
+    free(lst);
 }
