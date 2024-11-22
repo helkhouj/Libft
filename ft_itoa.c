@@ -6,7 +6,7 @@
 /*   By: helkhouj <helkhouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:18:47 by helkhouj          #+#    #+#             */
-/*   Updated: 2024/11/06 14:25:13 by helkhouj         ###   ########.fr       */
+/*   Updated: 2024/11/22 14:52:30 by helkhouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_itoa(int n)
 	int		len;
 	int		sign;
 	char	*str;
-
+	// change the n to whatever you want
 	len = get_num_length(n);
 	sign = 1;
 	if (n < 0)

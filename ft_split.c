@@ -6,7 +6,7 @@
 /*   By: helkhouj <helkhouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:33:12 by helkhouj          #+#    #+#             */
-/*   Updated: 2024/11/11 18:59:29 by helkhouj         ###   ########.fr       */
+/*   Updated: 2024/11/22 14:34:18 by helkhouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,3 +92,4 @@ char **ft_split(char const *s, char c)
 		return (NULL);
 	return (populate_result(s, c, result, word_count));
 }
+
