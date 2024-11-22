@@ -33,4 +33,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub_str[actual_len] = '\0';
 	return (sub_str);
 }
-

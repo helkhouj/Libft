@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-static size_t count_words(const char *s, char c)
+static size_t	count_words(const char *s, char c)
 {
-	size_t count;
+	size_t	count;
 
 	count = 0;
 	while (*s)
@@ -31,9 +31,9 @@ static size_t count_words(const char *s, char c)
 	return (count);
 }
 
-static char *alloc_word(const char *s, size_t start, size_t len)
+static char	*alloc_word(const char *s, size_t start, size_t len)
 {
-	char *word;
+	char	*word;
 
 	word = (char *)malloc((len + 1) * sizeof(char));
 	if (!word)
@@ -43,7 +43,7 @@ static char *alloc_word(const char *s, size_t start, size_t len)
 	return (word);
 }
 
-static void *free_all(char **result, size_t idx)
+static void	*free_all(char **result, size_t idx)
 {
 	while (idx--)
 		free(result[idx]);
@@ -51,12 +51,13 @@ static void *free_all(char **result, size_t idx)
 	return (NULL);
 }
 
-static char **populate_result(char const *s, char c, char **result, size_t word_count)
+static char	**populate_result(char const *s, char c, char **result,
+		size_t word_count)
 {
-	size_t i;
-	size_t start;
-	size_t len;
-	size_t idx;
+	size_t	i;
+	size_t	start;
+	size_t	len;
+	size_t	idx;
 
 	i = 0;
 	len = 0;
@@ -79,7 +80,7 @@ static char **populate_result(char const *s, char c, char **result, size_t word_
 	return (result);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**result;
 	size_t	word_count;
@@ -92,4 +93,3 @@ char **ft_split(char const *s, char c)
 		return (NULL);
 	return (populate_result(s, c, result, word_count));
 }
-
