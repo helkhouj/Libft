@@ -6,7 +6,7 @@
 /*   By: helkhouj <helkhouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 09:41:58 by helkhouj          #+#    #+#             */
-/*   Updated: 2024/11/21 16:00:40 by helkhouj         ###   ########.fr       */
+/*   Updated: 2024/11/23 16:12:28 by helkhouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strdup(const char *s)
 	if (!dup)
 		return (NULL);
 	i = 0;
-	while (i <= len)
+	while (i < len)
 	{
 		dup[i] = s[i];
 		i++;

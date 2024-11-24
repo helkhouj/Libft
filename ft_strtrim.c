@@ -6,7 +6,7 @@
 /*   By: helkhouj <helkhouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:35:56 by helkhouj          #+#    #+#             */
-/*   Updated: 2024/11/22 13:54:34 by helkhouj         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:14:04 by helkhouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*trimmed_str;
 
 	if (!s1 || !set)
-		return (NULL);
+		return (NULL); // TODO(XENOBAS): Hard to defend.
 	start = 0;
 	end = ft_strlen(s1);
 	while (s1[start] && is_in_set(s1[start], set))

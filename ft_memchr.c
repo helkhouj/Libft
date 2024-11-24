@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: helkhouj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: helkhouj <helkhouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 12:46:55 by helkhouj          #+#    #+#             */
-/*   Updated: 2024/11/06 12:47:15 by helkhouj         ###   ########.fr       */
+/*   Updated: 2024/11/24 16:06:39 by helkhouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,4 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
+

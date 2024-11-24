@@ -6,12 +6,13 @@
 /*   By: helkhouj <helkhouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:33:12 by helkhouj          #+#    #+#             */
-/*   Updated: 2024/11/22 14:34:18 by helkhouj         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:19:38 by helkhouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// NOTE(XENOBAS): Avoid pointer iteration like the plague.
 static size_t	count_words(const char *s, char c)
 {
 	size_t	count;
@@ -31,6 +32,7 @@ static size_t	count_words(const char *s, char c)
 	return (count);
 }
 
+// TODO(XENOBAS): You already have substr.
 static char	*alloc_word(const char *s, size_t start, size_t len)
 {
 	char	*word;
@@ -76,7 +78,7 @@ static char	**populate_result(char const *s, char c, char **result,
 		}
 		i++;
 	}
-	result[idx] = NULL;
+	result[idx] = NULL; // TODO(XENOBAS): Separate between 0 vs NULL vs '\0' !!!
 	return (result);
 }
 
@@ -86,7 +88,7 @@ char	**ft_split(char const *s, char c)
 	size_t	word_count;
 
 	if (!s)
-		return (NULL);
+		return (NULL); // TODO(XENOBAS): Hard to defend.
 	word_count = count_words(s, c);
 	result = malloc((word_count + 1) * sizeof(char *));
 	if (!result)

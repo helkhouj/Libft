@@ -6,7 +6,7 @@
 /*   By: helkhouj <helkhouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:18:04 by helkhouj          #+#    #+#             */
-/*   Updated: 2024/11/22 16:11:54 by helkhouj         ###   ########.fr       */
+/*   Updated: 2024/11/23 14:46:46 by helkhouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ static int	check_overflow(int result, int digit, int sign)
 	return (0);
 }
 
+// TODO(XENOBAS): You should let it overflow, match the behaviour as displayed by
+// the standard library.
 int	ft_atoi(const char *str)
 {
 	size_t	i;

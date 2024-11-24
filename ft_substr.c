@@ -6,7 +6,7 @@
 /*   By: helkhouj <helkhouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:36:30 by helkhouj          #+#    #+#             */
-/*   Updated: 2024/11/21 16:23:05 by helkhouj         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:06:59 by helkhouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	actual_len;
 
 	if (!s)
-		return (NULL);
+		return (NULL); // TODO(XENOBAS): Make sure to defend this well.
 	str_len = ft_strlen(s);
 	if (start >= str_len)
-		return ((char *)malloc(1));
+		return ((char *)malloc(1)); // TODO(XENOBAS): This does not work at all.
 	actual_len = str_len - start;
 	if (actual_len > len)
 		actual_len = len;

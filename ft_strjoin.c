@@ -6,7 +6,7 @@
 /*   By: helkhouj <helkhouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:34:45 by helkhouj          #+#    #+#             */
-/*   Updated: 2024/11/21 17:04:38 by helkhouj         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:08:34 by helkhouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	total_len;
 
 	if (!s1 || !s2)
-		return (NULL);
+		return (NULL); // TODO(XENOBAS): This is not easy to defend.
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
 	total_len = s1_len + s2_len;
