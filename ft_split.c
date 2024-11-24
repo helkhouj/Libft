@@ -6,7 +6,7 @@
 /*   By: helkhouj <helkhouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:33:12 by helkhouj          #+#    #+#             */
-/*   Updated: 2024/11/23 15:19:38 by helkhouj         ###   ########.fr       */
+/*   Updated: 2024/11/24 18:22:01 by helkhouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ static void	*free_all(char **result, size_t idx)
 	return (NULL);
 }
 
-static char	**populate_result(char const *s, char c, char **result, size_t word_count)
+static char	**populate_result(char const *s, char c, char **result,
+		size_t word_count)
 {
 	size_t	i;
 	size_t	start;
@@ -53,11 +54,10 @@ static char	**populate_result(char const *s, char c, char **result, size_t word_
 	{
 		while (s[i] && s[i] == c)
 			i++;
-		start = i; 
+		start = i;
 		while (s[i] && s[i] != c)
 			i++;
-
-		if (i > start) 
+		if (i > start)
 		{
 			result[idx] = ft_substr(s, start, i - start);
 			if (!result[idx])
@@ -65,7 +65,7 @@ static char	**populate_result(char const *s, char c, char **result, size_t word_
 			idx++;
 		}
 	}
-	result[idx] = NULL; 
+	result[idx] = NULL;
 	return (result);
 }
 
@@ -75,7 +75,7 @@ char	**ft_split(char const *s, char c)
 	size_t	word_count;
 
 	if (!s)
-		return (ft_strdup("")); 
+		return (NULL);
 	word_count = count_words(s, c);
 	result = malloc((word_count + 1) * sizeof(char *));
 	if (!result)

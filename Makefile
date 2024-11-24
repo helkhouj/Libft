@@ -1,4 +1,3 @@
-# Source files
 SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
        ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c \
        ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c \
@@ -15,46 +14,34 @@ SRCSB = ft_lstnew_bonus.c ft_lstadd_front_bonus.c \
 	ft_lstclear_bonus.c ft_lstiter_bonus.c \
 	ft_lstmap_bonus.c
 
-# Object files
 OBJS = ${SRCS:.c=.o}
 OBJSB = ${SRCSB:.c=.o}
 
-# Compiler and flags
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-# Library name
 NAME = libft.a
 LIBC = ar rcs
 
-# Clean-up
 RM = rm -f
 
-# Compile .c to .o
 .c.o:
 	${CC} ${CFLAGS} -c $< -o $@
 
-# Build the library
 ${NAME}: ${OBJS}
 	${LIBC} ${NAME} ${OBJS}
 
-# Add bonus functionality
 bonus: ${NAME} ${OBJSB}
 	${LIBC} ${NAME} ${OBJSB}
 
-# Remove object files
 clean:
 	${RM} ${OBJS} ${OBJSB}
 
-# Remove everything
 fclean: clean
 	${RM} ${NAME}
 
-# Rebuild everything
 re: fclean all
 
-# Phony targets
 .PHONY: all bonus clean fclean re
 
-# Default target
 all: ${NAME}
