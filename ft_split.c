@@ -12,37 +12,25 @@
 
 #include "libft.h"
 
-// NOTE(XENOBAS): Avoid pointer iteration like the plague.
 static size_t	count_words(const char *s, char c)
 {
 	size_t	count;
+	size_t	i;
 
 	count = 0;
-	while (*s)
+	i = 0;
+	while (s[i])
 	{
-		while (*s && *s == c)
-			s++;
-		if (*s && *s != c)
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i] && s[i] != c)
 		{
 			count++;
-			while (*s && *s != c)
-				s++;
+			while (s[i] && s[i] != c)
+				i++;
 		}
 	}
 	return (count);
-}
-
-// TODO(XENOBAS): You already have substr.
-static char	*alloc_word(const char *s, size_t start, size_t len)
-{
-	char	*word;
-
-	word = (char *)malloc((len + 1) * sizeof(char));
-	if (!word)
-		return (NULL);
-	ft_memcpy(word, s + start, len);
-	word[len] = '\0';
-	return (word);
 }
 
 static void	*free_all(char **result, size_t idx)
@@ -53,32 +41,31 @@ static void	*free_all(char **result, size_t idx)
 	return (NULL);
 }
 
-static char	**populate_result(char const *s, char c, char **result,
-		size_t word_count)
+static char	**populate_result(char const *s, char c, char **result, size_t word_count)
 {
 	size_t	i;
 	size_t	start;
-	size_t	len;
 	size_t	idx;
 
 	i = 0;
-	len = 0;
 	idx = 0;
 	while (s[i] && idx < word_count)
 	{
-		if (s[i] != c && len++ == 0)
-			start = i;
-		if ((s[i] == c || !s[i + 1]) && len > 0)
+		while (s[i] && s[i] == c)
+			i++;
+		start = i; 
+		while (s[i] && s[i] != c)
+			i++;
+
+		if (i > start) 
 		{
-			result[idx] = alloc_word(s, start, len);
+			result[idx] = ft_substr(s, start, i - start);
 			if (!result[idx])
 				return (free_all(result, idx));
 			idx++;
-			len = 0;
 		}
-		i++;
 	}
-	result[idx] = NULL; // TODO(XENOBAS): Separate between 0 vs NULL vs '\0' !!!
+	result[idx] = NULL; 
 	return (result);
 }
 
@@ -88,7 +75,7 @@ char	**ft_split(char const *s, char c)
 	size_t	word_count;
 
 	if (!s)
-		return (NULL); // TODO(XENOBAS): Hard to defend.
+		return (ft_strdup("")); 
 	word_count = count_words(s, c);
 	result = malloc((word_count + 1) * sizeof(char *));
 	if (!result)

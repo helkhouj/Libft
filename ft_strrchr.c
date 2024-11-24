@@ -27,14 +27,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
-int	main(void)
-{
-	char	str[5];
-	char	*result;
-
-	str[5] = "hello";
-	result = ft_strrchr(str, '\0');
-	printf("%s", result);
-	return (0);
-}

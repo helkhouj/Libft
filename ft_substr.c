@@ -19,10 +19,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	actual_len;
 
 	if (!s)
-		return (NULL); // TODO(XENOBAS): Make sure to defend this well.
+		return (ft_strdup(""));
 	str_len = ft_strlen(s);
 	if (start >= str_len)
-		return ((char *)malloc(1)); // TODO(XENOBAS): This does not work at all.
+		return (ft_strdup(""));
 	actual_len = str_len - start;
 	if (actual_len > len)
 		actual_len = len;

@@ -30,7 +30,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*trimmed_str;
 
 	if (!s1 || !set)
-		return (NULL); // TODO(XENOBAS): Hard to defend.
+		return (ft_strdup(""));
 	start = 0;
 	end = ft_strlen(s1);
 	while (s1[start] && is_in_set(s1[start], set))

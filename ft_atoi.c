@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
 
 static size_t	skip_whitespace(const char *str)
 {
@@ -24,25 +23,11 @@ static size_t	skip_whitespace(const char *str)
 	return (i);
 }
 
-static int	check_overflow(int result, int digit, int sign)
-{
-	if (result > (INT_MAX - digit) / 10)
-	{
-		if (sign == 1)
-			return (INT_MAX);
-		return (INT_MIN);
-	}
-	return (0);
-}
-
-// TODO(XENOBAS): You should let it overflow, match the behaviour as displayed by
-// the standard library.
 int	ft_atoi(const char *str)
 {
 	size_t	i;
 	int		sign;
 	int		result;
-	int		overflow;
 
 	i = skip_whitespace(str);
 	sign = 1;
@@ -55,9 +40,6 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		overflow = check_overflow(result, str[i] - '0', sign);
-		if (overflow != 0)
-			return (overflow);
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}

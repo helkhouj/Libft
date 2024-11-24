@@ -20,7 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	total_len;
 
 	if (!s1 || !s2)
-		return (NULL); // TODO(XENOBAS): This is not easy to defend.
+		return (ft_strdup("")); 
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
 	total_len = s1_len + s2_len;
